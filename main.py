@@ -1,4 +1,6 @@
 from typing import List
+
+from env import Env
 from print import Logger
 from file import FileHandler
 from scrapper import Scrapper
@@ -15,7 +17,7 @@ def get_job_info_from_list(links):
 
 
 def get_links():
-    file_handler = FileHandler('links')
+    file_handler = FileHandler(Env.get_links_path())
     return file_handler.read_lines()
 
 
@@ -35,4 +37,5 @@ def main():
 
 
 if __name__ == '__main__':
+    Env.init()
     main()
