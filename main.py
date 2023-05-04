@@ -26,14 +26,17 @@ def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]
     for job_info in job_info_list:
         row = [job_info.company, job_info.job_title, job_info.link]
         table_data.append(row)
+
     return table_data
 
 
 def main():
     jobs = get_job_info_from_list(get_links())
+    headers = ["Empresa", "Cargo", "Link"]
+    rows = job_info_list_to_table_data(jobs)
 
-    Logger.print_table(headers=["Empresa", "Cargo", "Link"],
-                       rows=job_info_list_to_table_data(jobs))
+    Logger.print_table(headers=headers, rows=rows)
+    Logger.write_table_to_file(headers=headers, rows=rows, file=FileHandler(Env.get_result_path()))
 
 
 if __name__ == '__main__':

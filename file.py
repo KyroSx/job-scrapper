@@ -9,4 +9,4 @@ class FileHandler:
 
     def write_lines(self, lines):
         with open(self.file_path, 'w') as file:
-            file.write('\n'.join(lines))
+            file.write(lines)
