@@ -10,8 +10,8 @@ class SeniorityGetterTestCase(unittest.TestCase):
 
     def make_job(self, title: str, description: str = 'N/A') -> JobInfo:
         return JobInfo(company='Google',
-                       job_title=title,
-                       job_description=description,
+                       title=title,
+                       description=description,
                        link='http://google.com')
 
     def test_junior(self):

@@ -5,13 +5,13 @@ from enum import Enum
 @dataclass
 class JobInfo:
     company: str
-    job_title: str
+    title: str
     link: str
-    job_description: str = 'N/A'
+    description: str = 'N/A'
 
     def __str__(self):
         return (f'\nEmpresa: {self.company}'
-                f'\nTitulo: {self.job_title}'
+                f'\nTitulo: {self.title}'
                 f'\nLink: {self.link}')
 
 

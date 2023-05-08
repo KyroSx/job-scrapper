@@ -24,7 +24,7 @@ def get_links():
 def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]:
     table_data = []
     for job_info in job_info_list:
-        row = [job_info.company, job_info.job_title, job_info.link]
+        row = [job_info.company, job_info.title, job_info.link]
         table_data.append(row)
 
     return table_data

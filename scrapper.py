@@ -19,6 +19,6 @@ class Scrapper:
         job_title = self.page.select_one('.topcard__title').text.strip()
 
         return JobInfo(company=company,
-                       job_title=job_title,
+                       title=job_title,
                        link=self.url)
 
