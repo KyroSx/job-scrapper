@@ -19,14 +19,17 @@ class SeniorityGetter:
     @staticmethod
     def __is_junior(job: JobInfo):
         return Regexp(r"jr\.?|j[uú]nior") \
-            .search(job.job_title.lower())
+            .search_any_in(job.job_title.lower(),
+                           job.job_description.lower())
 
     @staticmethod
-    def __is_pleno(job: JobInfo):
+    def __is_pleno(job: JobInfo) -> bool:
         return Regexp(r"\bpl(?:eno)?\b|\bpl\b|\bPL\b") \
-            .search(job.job_title.lower())
+            .search_any_in(job.job_title.lower(),
+                           job.job_description.lower())
 
     @staticmethod
     def __is_senior(job: JobInfo):
         return Regexp(r'sr\.?|s[eê]ni[oô]r') \
-            .search(job.job_title.lower())
+            .search_any_in(job.job_title.lower(),
+                           job.job_description.lower())
