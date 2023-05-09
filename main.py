@@ -24,7 +24,7 @@ def get_links():
 def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]:
     table_data = []
     for job_info in job_info_list:
-        row = [job_info.company, job_info.title, job_info.link]
+        row = [job_info.company, job_info.title, job_info.seniority.value, job_info.link]
         table_data.append(row)
 
     return table_data
@@ -32,7 +32,7 @@ def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]
 
 def main():
     jobs = get_job_info_from_list(get_links())
-    headers = ["Empresa", "Cargo", "Link"]
+    headers = ["Empresa", "Cargo", "Senioridade", "Link"]
     rows = job_info_list_to_table_data(jobs)
 
     Logger.print_table(headers=headers, rows=rows)
