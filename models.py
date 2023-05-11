@@ -12,7 +12,7 @@ class Seniority(Enum):
 
 
 @dataclass
-class JobInfo:
+class Job:
     company: str
     title: str
     link: str

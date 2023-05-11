@@ -1,11 +1,11 @@
 
-from models import JobInfo, Seniority
+from models import Job, Seniority
 from regexp import Regexp
 
 
 class SeniorityGetter:
     @staticmethod
-    def get_seniority(job: JobInfo) -> Seniority:
+    def get_seniority(job: Job) -> Seniority:
         title = job.title.lower()
 
         if SeniorityGetter.__is_junior_pleno(title):

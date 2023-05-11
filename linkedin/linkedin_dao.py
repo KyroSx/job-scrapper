@@ -3,14 +3,14 @@ from typing import List
 from cache import CacheHandler
 from json_hash import JsonHash
 from linkedin.linkedin_scrapper import LinkedinScrapper
-from models import JobInfo
+from models import Job
 
 
 class LinkedinDao:
     def __init__(self):
         self.cache = CacheHandler()
 
-    def get_jobs_from_links(self, links: List[str]) -> List[JobInfo]:
+    def get_jobs_from_links(self, links: List[str]) -> List[Job]:
         jobs = []
 
         for link in links:
@@ -27,7 +27,6 @@ class LinkedinDao:
 
         return jobs
 
-    def _fetch_job_info(self, link: str) -> JobInfo:
-        scrapper = LinkedinScrapper(link)
-        job = scrapper.get_job_info()
-        return job
+    def _fetch_job_info(self, link: str) -> Job:
+        return LinkedinScrapper(link)\
+            .get_job_info()

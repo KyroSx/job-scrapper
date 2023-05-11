@@ -1,19 +1,19 @@
 import unittest
 from parameterized import parameterized
 
-from models import JobInfo, Seniority
+from models import Job, Seniority
 from seniority.seniority_getter import SeniorityGetter
 
 
 class SeniorityGetterTestCase(unittest.TestCase):
-    def sut(self, job: JobInfo):
+    def sut(self, job: Job):
         return SeniorityGetter.get_seniority(job)
 
-    def make_job(self, title: str, description: str = 'N/A') -> JobInfo:
-        return JobInfo(company='Google',
-                       title=title,
-                       description=description,
-                       link='http://google.com')
+    def make_job(self, title: str, description: str = 'N/A') -> Job:
+        return Job(company='Google',
+                   title=title,
+                   description=description,
+                   link='http://google.com')
 
     @parameterized.expand([
         'Desenvolvedor Junior',

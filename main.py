@@ -4,7 +4,7 @@ from env import Env
 from linkedin.linkedin_dao import LinkedinDao
 from print import Logger
 from file import FileHandler
-from models import JobInfo
+from models import Job
 
 
 def get_links():
@@ -12,7 +12,7 @@ def get_links():
     return file_handler.read_lines()
 
 
-def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]:
+def job_info_list_to_table_data(job_info_list: List[Job]) -> List[List[str]]:
     table_data = []
     for index, job_info in enumerate(job_info_list):
         row = [
