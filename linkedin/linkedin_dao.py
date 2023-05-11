@@ -14,18 +14,22 @@ class LinkedinDao:
         jobs = []
 
         for link in links:
-            job = self.cache.get(link)
-
-            if job:
-                job = JsonHash.decode(job)
-            else:
-                job = self._fetch_job_info(link)
-                self.cache.set(key=link,
-                               value=JsonHash.encode(job))
-
+            job = self.get_job_from_link(link)
             jobs.append(job)
 
         return jobs
+
+    def get_job_from_link(self, link: str) -> Job:
+        job = self.cache.get(link)
+
+        if job:
+            return JsonHash.decode(job)
+
+        job = self._fetch_job_info(link)
+        self.cache.set(key=link,
+                       value=JsonHash.encode(job))
+
+        return job
 
     def _fetch_job_info(self, link: str) -> Job:
         return LinkedinScrapper(link)\
