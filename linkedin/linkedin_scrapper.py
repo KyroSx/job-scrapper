@@ -1,29 +1,19 @@
 import requests
 from bs4 import BeautifulSoup
 
-from cache import CacheHandler
 from models import JobInfo
 from seniority.seniority_getter import SeniorityGetter
 
 
-class Scrapper:
+class LinkedinScrapper:
     def __init__(self, url: str):
         self.url = url
-        self.cache_handler = CacheHandler()
-        self.page = self._get_page()
+        self.html = self._fetch_html()
+        self.page = BeautifulSoup(self.html, 'html.parser')
 
     def _fetch_html(self) -> str:
         response = requests.get(self.url)
         return response.content
-
-    def _get_page(self):
-        page_html = self.cache_handler.get(self.url)
-
-        if not page_html:
-            page_html = self._fetch_html()
-            self.cache_handler.set(self.url, page_html)
-
-        return BeautifulSoup(page_html, 'html.parser')
 
     def get_job_info(self) -> JobInfo:
         company = self.page.select_one('.topcard__org-name-link').text.strip()

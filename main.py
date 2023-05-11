@@ -29,7 +29,7 @@ def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]
 
 
 def main():
-    jobs = LinkedinDao.get_jobs_from_links(get_links())
+    jobs = LinkedinDao().get_jobs_from_links(get_links())
     headers = ["id", "Empresa", "Cargo", "Senioridade", "Link"]
     rows = job_info_list_to_table_data(jobs)
 
