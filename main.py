@@ -1,19 +1,10 @@
 from typing import List
 
 from env import Env
+from linkedin.linkedin_dao import LinkedinDao
 from print import Logger
 from file import FileHandler
-from scrapper import Scrapper
 from models import JobInfo
-
-
-def get_job_info_from_list(links):
-    jobs = []
-    for link in links:
-        scrapper = Scrapper(link)
-        jobs.append(scrapper.get_job_info())
-
-    return jobs
 
 
 def get_links():
@@ -38,7 +29,7 @@ def job_info_list_to_table_data(job_info_list: List[JobInfo]) -> List[List[str]]
 
 
 def main():
-    jobs = get_job_info_from_list(get_links())
+    jobs = LinkedinDao.get_jobs_from_links(get_links())
     headers = ["id", "Empresa", "Cargo", "Senioridade", "Link"]
     rows = job_info_list_to_table_data(jobs)
 
