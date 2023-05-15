@@ -5,12 +5,6 @@ from file import FileHandler
 
 
 class Main:
-    def __init__(self):
-        self._boot()
-
-    def _boot(self):
-        Env.init()
-
     def start(self):
         jobs = LinkedinDao().get_jobs_from_links(self._get_links())
 
