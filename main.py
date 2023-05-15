@@ -1,7 +1,7 @@
-from env import Env
+from lib.env import Env
 from job_logger import JobLogger
 from linkedin.linkedin_dao import LinkedinDao
-from file import FileHandler
+from lib.file import FileHandler
 
 
 class Main:

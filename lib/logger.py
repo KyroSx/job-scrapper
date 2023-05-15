@@ -2,7 +2,7 @@ from typing import List
 
 from prettytable import PrettyTable
 
-from file import FileHandler
+from lib.file import FileHandler
 
 
 class Logger:

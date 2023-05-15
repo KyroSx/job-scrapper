@@ -1,9 +1,9 @@
 from typing import List
 
-from cache import CacheHandler
-from json_hash import JsonHash
+from lib.cache import CacheHandler
+from lib.json_hash import JsonHash
 from linkedin.linkedin_scrapper import LinkedinScrapper
-from models import Job
+from models.job import Job
 
 
 class LinkedinDao:

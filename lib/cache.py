@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 import redis
 
-from env import Env
+from lib.env import Env
 
 
 @dataclass

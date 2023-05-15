@@ -1,10 +1,9 @@
 from typing import List
 
-from models import Job
-from print import Logger
-from file import FileHandler
-
-from env import Env
+from models.job import Job
+from lib.file import FileHandler
+from lib.logger import Logger
+from lib.env import Env
 
 
 class JobLogger:

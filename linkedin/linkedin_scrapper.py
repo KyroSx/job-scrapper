@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-from models import Job
+from models.job import Job
 from seniority.seniority_getter import SeniorityGetter
 
 

@@ -1,6 +1,7 @@
 
-from models import Job, Seniority
-from regexp import Regexp
+from lib.regexp import Regexp
+from models.job import Job
+from models.seniority import Seniority
 
 
 class SeniorityGetter:

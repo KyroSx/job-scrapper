@@ -1,7 +1,8 @@
 import unittest
 from parameterized import parameterized
 
-from models import Job, Seniority
+from models.job import Job
+from models.seniority import Seniority
 from seniority.seniority_getter import SeniorityGetter
 
 
